@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>London Transport System</title>
+  </head>
+  <body>
+    <h1>Transports</h1>
+    <ul>
+      <% transports.forEach((transport) => { %>
+      <li>
+        <a href="/transports/<%= transport.id %>">
+          <%= transport.name %> - <%= transport.type %>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+    <form action="/transport" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required />
+      <br />
+      <label for="type">Type:</label>
+      <input type="type" name="type" id="type" required />
+      <br />
+      <label for="createAt">Create at:</label>
+      <input type="createAt" name="createAt" id="createAt" required />
+      <br />
+      <label for="updatedAt">Updated at:</label>
+      <input type="updatedAt" name="updatedAt" id="updatedAt" required />
+      <br />
+      <input type="submit" value="Create" />
+    </form>
+  </body>
+</html>
