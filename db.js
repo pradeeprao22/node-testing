@@ -1,26 +1,15 @@
-// Removed Code
-// const { Pool } = require("pg");
+const { Sequelize } = require('sequelize');
+const config = require('./config');
 
-// const pool = new Pool({
-//     user: 'pradeeprao',
-//     database: 'node_app',
-//     password: '',
-//     port: 5432,
-//     host: 'localhost',
-// })
+const sequelize = new Sequelize(config.development);
 
-// module.exports = { pool };
-const { Sequelize } = require('sequelize')
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection to the database has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+})();
 
-const sequelize = new Sequelize('node_app', 'pradeeprao', '', {
-     host: 'localhost',
-     dialect: 'postgres'
-});
-
-sequelize.sync().then(()=>{
-   console.log('Database synced');
-}).catch((err) =>{
-  console.error('Error syncing database', err);
-});
-
-module.exports = { sequelize } 
+module.exports = sequelize;
