@@ -1,18 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Sequelize } = require('sequelize')
-
-const sequelize = new Sequelize('node_app', 'pradeeprao', '', {
-    host: 'localhost',
-    port: 5432,
-    dialect: 'postgres'
-});
-
-sequelize.sync().then(()=>{
- console.log('Database synced');
-}).catch((err) =>{
- console.error('Error syncing database', err);
-});
+const sequelize = require("../db");
 
 // Define the "Record" model
 const Transport = sequelize.define('Transport', {
