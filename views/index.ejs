@@ -22,12 +22,17 @@
       <input type="type" name="type" id="type" required />
       <br />
       <label for="createAt">Create at:</label>
-      <input type="createAt" name="createAt" id="createAt" required />
+      <input type="createAt" name="createAt" id="datepicker" required />
       <br />
       <label for="updatedAt">Updated at:</label>
-      <input type="updatedAt" name="updatedAt" id="updatedAt" required />
+      <input type="updatedAt" name="updatedAt" id="datepicker" required />
       <br />
       <input type="submit" value="Create" />
     </form>
+    <script src="https://unpkg.com/datepicker@1.0.10/datepicker.js"></script>
+    <script>
+      const input = document.getElementById('datepicker');
+      const datepickerInstance = datepicker(input);
+    </script>
   </body>
 </html>
